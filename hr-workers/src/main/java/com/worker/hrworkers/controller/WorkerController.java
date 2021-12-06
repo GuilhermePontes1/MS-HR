@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value =  "/workers")
+@RequestMapping(value = "/workers")
 public class WorkerController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class WorkerController {
 
     @GetMapping
     public ResponseEntity<List<Worker>> findAll() {
-        List<Worker>list = repository.findAll();
+        List<Worker> list = repository.findAll();
         return ResponseEntity.ok(list);
     }
 

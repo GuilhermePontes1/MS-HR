@@ -13,7 +13,7 @@ public class Worker implements Serializable {
     private Long id;
 
     private String name;
-   private Double dailyIncome;
+    private Double dailyIncome;
 
     public Long getId() {
         return id;
