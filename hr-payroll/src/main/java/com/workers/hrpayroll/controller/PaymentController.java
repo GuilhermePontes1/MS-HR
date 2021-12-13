@@ -1,7 +1,6 @@
 package com.workers.hrpayroll.controller;
-
-import com.workers.hrpayroll.entities.Payament;
-import com.workers.hrpayroll.services.PayamentService;
+import com.workers.hrpayroll.entities.Payment;
+import com.workers.hrpayroll.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/payments")
-public class PayamentController {
+public class PaymentController {
 
     @Autowired
-    private PayamentService service;
+    private PaymentService service;
 
     @GetMapping(value = "/{workerId}/days/{days}")
-    public ResponseEntity<Payament> getPayament(@PathVariable Long workerId, @PathVariable Integer days) {
-        Payament payament = service.getPayament(workerId,days);
-        return ResponseEntity.ok(payament);
+    public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days) {
+        Payment payment = service.getPayment(workerId,days);
+        return ResponseEntity.ok(payment);
     }
 
 
