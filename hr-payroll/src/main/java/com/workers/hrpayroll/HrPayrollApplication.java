@@ -9,6 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @RibbonClient(name = "hr-worker")
 @EnableFeignClients
 @SpringBootApplication
+
 public class HrPayrollApplication {
 
     public static void main(String[] args) {
