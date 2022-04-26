@@ -13,17 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RefreshScope
 @RestController
-@RequestMapping(value ="/workers")
+@RequestMapping(value = "/workers")
 public class WorkerController {
 
     private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
-
-    @Value("${test.config}")
-    private String testConfig;
 
     @Autowired
     private WorkRepository repository;
@@ -33,7 +31,6 @@ public class WorkerController {
 
     @GetMapping(value = "/configs")
     public ResponseEntity<Void> getConfigs() {
-        logger.info("CONFIG = " + testConfig);
         return ResponseEntity.noContent().build();
     }
 
@@ -45,6 +42,12 @@ public class WorkerController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id) {
+
+        try {
+            Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         logger.info("PORT = " + env.getProperty("local.server.port"));
 
